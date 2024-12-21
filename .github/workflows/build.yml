@@ -1,0 +1,48 @@
+name: Build Macroquad Apps
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-macos:
+    name: Build macOS App
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Install Cargo Bundle
+        run: cargo install cargo-bundle
+
+      - name: Build macOS App
+        run: cargo bundle --release
+
+      - name: Install create-dmg
+        run: brew install create-dmg
+
+      - name: Create DMG
+        run: |
+          create-dmg \
+            --volname "Macroquad POC" \
+            --window-pos 200 120 \
+            --window-size 600 300 \
+            --icon-size 100 \
+            --icon "macroquad-poc.app" 175 120 \
+            --hide-extension "macroquad-poc.app" \
+            --app-drop-link 425 120 \
+            "macroquad-poc.dmg" \
+            "target/release/bundle/osx/"
+
+      - name: Upload DMG
+        uses: actions/upload-artifact@v3
+        with:
+          name: macos-dmg
+          path: macroquad-poc.dmg
