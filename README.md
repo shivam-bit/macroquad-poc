@@ -22,7 +22,7 @@
 3. Run the macOS App: Open the generated macroquad-poc.app in the target/release/bundle/osx/ directory.
 
 ### Building and Running the iOS App
-
+<img width="1804" alt="Screenshot 2024-12-22 at 1 41 30 AM" src="https://github.com/user-attachments/assets/18500be3-ce01-4fa1-9b62-34fd8744c09a" />
 1. **Install Rust and iOS Toolchain:**
 
    ```sh
@@ -45,7 +45,8 @@
 
 The project includes a GitHub Actions pipeline to build the macOS app automatically.
 
-### macOS Build Pipeline
+### macOS Build 
+Pipeline
 
 The pipeline is defined in `.github/workflows/build.yml` and runs on every push and pull request to the main branch.
 
