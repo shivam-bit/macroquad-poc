@@ -9,6 +9,7 @@
 - [Xcode](https://developer.apple.com/xcode/) (for iOS)
 
 ### Building and Running the macOS App
+<img width="1635" alt="Screenshot 2024-12-22 at 1 58 49 AM" src="https://github.com/user-attachments/assets/c8e8d7d2-55c5-43df-987e-3b87c6ec4fe4" />
 
 1. **Install Rust and Cargo Bundle:**
    ```sh
